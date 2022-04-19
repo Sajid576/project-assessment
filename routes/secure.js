@@ -1,21 +1,26 @@
-const express = require("express");
+/* eslint-disable max-lines */
+const express = require('express');
 
 const router = express.Router();
-const c = require("../controllers");
-const m = require("../middleware");
+const c = require('../controllers');
+const m = require('../middleware');
 
 /**
  * @swagger
  * tags:
- *   name: Harmoni
- *   description: API to manage Harmoni.
+ *   name: Project Assessment
+ *   description: API to manage Project Assessment.
  */
 
-router.get("/role", c.role.index);
-router.get("/activitylog", m.requireAdminOrUser, c.activitylog.index);
+router.get('/role', c.role.index);
+router.get(
+  '/activitylog',
+  m.requireAdminOrMentorOrStudent,
+  c.activitylog.index,
+);
 
-router.get("/users", m.requireAdmin, c.user.index);
-router.post("/user/:UserId", c.userUpdate.update);
+router.get('/users', m.requireAdmin, c.user.index);
+router.post('/user/:UserId', c.userUpdate.update);
 
 // Assessment routes
 /**
@@ -31,7 +36,7 @@ router.post("/user/:UserId", c.userUpdate.update);
  *       500:
  *         something when wrong.
  */
-router.get("/assessment", m.requireAdminOrMentor, c.assessment.index);
+router.get('/assessment', m.requireAdminOrMentor, c.assessment.index);
 
 /**
  * @swagger
@@ -46,7 +51,7 @@ router.get("/assessment", m.requireAdminOrMentor, c.assessment.index);
  *       500:
  *         something when wrong.
  */
-router.post("/assessment", m.requireAdmin, c.assessment.create);
+router.post('/assessment', m.requireAdmin, c.assessment.create);
 
 /**
  * @swagger
@@ -62,9 +67,9 @@ router.post("/assessment", m.requireAdmin, c.assessment.create);
  *         something when wrong.
  */
 router.get(
-  "/assessment/:id",
+  '/assessment/:id',
   m.requireAdminOrMentorOrStudent,
-  c.assessment.show
+  c.assessment.show,
 );
 
 /**
@@ -80,7 +85,7 @@ router.get(
  *       500:
  *         something when wrong.
  */
-router.post("/assessment/:id", m.requireAdmin, c.assessment.update);
+router.post('/assessment/:id', m.requireAdmin, c.assessment.update);
 
 /**
  * @swagger
@@ -95,7 +100,7 @@ router.post("/assessment/:id", m.requireAdmin, c.assessment.update);
  *       500:
  *         something when wrong.
  */
-router.delete("/assessment/:id", m.requireAdmin, c.assessment.destroy);
+router.delete('/assessment/:id', m.requireAdmin, c.assessment.destroy);
 
 // Assessment Submission routes
 /**
@@ -112,9 +117,9 @@ router.delete("/assessment/:id", m.requireAdmin, c.assessment.destroy);
  *         something when wrong.
  */
 router.get(
-  "/assessment-submission",
+  '/assessment-submission',
   m.requireAdminOrMentor,
-  c.assessmentSubmission.index
+  c.assessmentSubmission.index,
 );
 
 /**
@@ -131,9 +136,9 @@ router.get(
  *         something when wrong.
  */
 router.post(
-  "/assessment-submission",
+  '/assessment-submission',
   m.requireStudent,
-  c.assessmentSubmission.create
+  c.assessmentSubmission.create,
 );
 
 /**
@@ -150,9 +155,9 @@ router.post(
  *         something when wrong.
  */
 router.get(
-  "/assessment-submission/:id",
+  '/assessment-submission/:id',
   m.requireAdminOrMentorOrStudent,
-  c.assessmentSubmission.show
+  c.assessmentSubmission.show,
 );
 
 /**
@@ -169,9 +174,9 @@ router.get(
  *         something when wrong.
  */
 router.post(
-  "/assessment-submission/:id",
+  '/assessment-submission/:id',
   m.requireAdminOrStudent,
-  c.assessmentSubmission.update
+  c.assessmentSubmission.update,
 );
 
 /**
@@ -188,9 +193,9 @@ router.post(
  *         something when wrong.
  */
 router.delete(
-  "/assessment-submission/:id",
+  '/assessment-submission/:id',
   m.requireAdmin,
-  c.assessmentSubmission.destroy
+  c.assessmentSubmission.destroy,
 );
 
 // Grade Routes
@@ -207,7 +212,7 @@ router.delete(
  *       500:
  *         something when wrong.
  */
-router.get("/grade", m.requireAdminOrMentor, c.grade.index);
+router.get('/grade', m.requireAdminOrMentor, c.grade.index);
 
 /**
  * @swagger
@@ -222,7 +227,7 @@ router.get("/grade", m.requireAdminOrMentor, c.grade.index);
  *       500:
  *         something when wrong.
  */
-router.post("/grade", m.requireAdminOrMentor, c.grade.create);
+router.post('/grade', m.requireAdminOrMentor, c.grade.create);
 
 /**
  * @swagger
@@ -237,7 +242,7 @@ router.post("/grade", m.requireAdminOrMentor, c.grade.create);
  *       500:
  *         something when wrong.
  */
-router.get("/grade/:id", m.requireAdminOrMentorOrStudent, c.grade.show);
+router.get('/grade/:id', m.requireAdminOrMentorOrStudent, c.grade.show);
 
 /**
  * @swagger
@@ -252,7 +257,7 @@ router.get("/grade/:id", m.requireAdminOrMentorOrStudent, c.grade.show);
  *       500:
  *         something when wrong.
  */
-router.post("/grade/:id", m.requireAdminOrMentor, c.grade.update);
+router.post('/grade/:id', m.requireAdminOrMentor, c.grade.update);
 
 /**
  * @swagger
@@ -267,6 +272,6 @@ router.post("/grade/:id", m.requireAdminOrMentor, c.grade.update);
  *       500:
  *         something when wrong.
  */
-router.delete("/grade/:id", m.requireAdmin, c.grade.destroy);
+router.delete('/grade/:id', m.requireAdmin, c.grade.destroy);
 
 module.exports = router;

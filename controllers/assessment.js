@@ -1,4 +1,4 @@
-const m = require("../models");
+const m = require('../models');
 
 function index(req, res) {
   const where = {};

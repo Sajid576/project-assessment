@@ -1,22 +1,22 @@
-const swaggerJSDoc = require("swagger-jsdoc");
-const swaggerUi = require("swagger-ui-express");
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 const swaggerDefinition = {
-  openapi: "3.0.0",
+  openapi: '3.0.0',
   info: {
-    title: "Project Assessment",
-    version: "1.0.0",
+    title: 'Project Assessment',
+    version: '1.0.0',
     description:
-      "This is a REST API application made with Express. It retrieves data from JSONPlaceholder.",
+      'This is a REST API application made with Express. It retrieves data from JSONPlaceholder.',
     license: {
-      name: "Licensed Under MIT",
-      url: "https://spdx.org/licenses/MIT.html",
+      name: 'Licensed Under MIT',
+      url: 'https://spdx.org/licenses/MIT.html',
     },
   },
   servers: [
     {
       url: `${process.env.APP_URL}`,
-      description: "Development server",
+      description: 'Development server',
     },
   ],
 };
@@ -24,7 +24,7 @@ const swaggerDefinition = {
 const options = {
   swaggerDefinition,
   // Paths to files containing OpenAPI definitions
-  apis: ["./routes/*.js"],
+  apis: ['./routes/*.js'],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

@@ -1,4 +1,4 @@
-const helper = require("../helper");
+const helper = require('../helper');
 
 const ReqLogger = (req, res, next) => {
   const current_datetime = new Date();
@@ -9,8 +9,7 @@ const ReqLogger = (req, res, next) => {
   const { url } = req;
   const status = res.statusCode;
   const start = process.hrtime();
-  const durationInMilliseconds =
-    helper.getActualRequestDurationInMilliseconds(start);
+  const durationInMilliseconds = helper.getActualRequestDurationInMilliseconds(start);
   const log = `[${formatted_date}] ${method}:${url} ${status} ${durationInMilliseconds.toLocaleString()} ms`;
   console.log(log);
   next();
@@ -18,28 +17,28 @@ const ReqLogger = (req, res, next) => {
 
 const requireAdminOrMentor = (req, res, next) => {
   if (req.user.RoleId !== 1 && req.user.RoleId !== 2) {
-    res.status(403).send({ error: "access denied" });
+    res.status(403).send({ error: 'access denied' });
     return;
   }
   next();
 };
 const requireAdminOrStudent = (req, res, next) => {
   if (req.user.RoleId !== 1 && req.user.RoleId !== 3) {
-    res.status(403).send({ error: "access denied" });
+    res.status(403).send({ error: 'access denied' });
     return;
   }
   next();
 };
 const requireAdminOrMentorOrStudent = (req, res, next) => {
   if (req.user.RoleId !== 1 && req.user.RoleId !== 2 && req.user.RoleId !== 3) {
-    res.status(403).send({ error: "access denied" });
+    res.status(403).send({ error: 'access denied' });
     return;
   }
   next();
 };
 const requireAdmin = (req, res, next) => {
   if (req.user.RoleId !== 1) {
-    res.status(403).send({ error: "access denied" });
+    res.status(403).send({ error: 'access denied' });
     return;
   }
   next();
@@ -47,14 +46,14 @@ const requireAdmin = (req, res, next) => {
 
 const requireMentor = (req, res, next) => {
   if (req.user.RoleId !== 2) {
-    res.status(403).send({ error: "access denied" });
+    res.status(403).send({ error: 'access denied' });
     return;
   }
   next();
 };
 const requireStudent = (req, res, next) => {
   if (req.user.RoleId !== 3) {
-    res.status(403).send({ error: "access denied" });
+    res.status(403).send({ error: 'access denied' });
     return;
   }
   next();
