@@ -16,8 +16,22 @@ const ReqLogger = (req, res, next) => {
   next();
 };
 
-const requireAdminOrUser = (req, res, next) => {
+const requireAdminOrMentor = (req, res, next) => {
   if (req.user.RoleId !== 1 && req.user.RoleId !== 2) {
+    res.status(403).send({ error: "access denied" });
+    return;
+  }
+  next();
+};
+const requireAdminOrStudent = (req, res, next) => {
+  if (req.user.RoleId !== 1 && req.user.RoleId !== 3) {
+    res.status(403).send({ error: "access denied" });
+    return;
+  }
+  next();
+};
+const requireAdminOrMentorOrStudent = (req, res, next) => {
+  if (req.user.RoleId !== 1 && req.user.RoleId !== 2 && req.user.RoleId !== 3) {
     res.status(403).send({ error: "access denied" });
     return;
   }
@@ -47,6 +61,10 @@ const requireStudent = (req, res, next) => {
 };
 module.exports = {
   ReqLogger,
-  requireAdminOrUser,
+  requireAdminOrMentor,
   requireAdmin,
+  requireMentor,
+  requireStudent,
+  requireAdminOrMentorOrStudent,
+  requireAdminOrStudent,
 };

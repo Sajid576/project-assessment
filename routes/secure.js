@@ -31,7 +31,7 @@ router.post("/user/:UserId", c.userUpdate.update);
  *       500:
  *         something when wrong.
  */
-router.get("/assessment", c.assessment.index);
+router.get("/assessment", m.requireAdminOrMentor, c.assessment.index);
 
 /**
  * @swagger
@@ -61,7 +61,11 @@ router.post("/assessment", m.requireAdmin, c.assessment.create);
  *       500:
  *         something when wrong.
  */
-router.get("/assessment/:id", m.requireAdmin, c.assessment.show);
+router.get(
+  "/assessment/:id",
+  m.requireAdminOrMentorOrStudent,
+  c.assessment.show
+);
 
 /**
  * @swagger
@@ -107,7 +111,11 @@ router.delete("/assessment/:id", m.requireAdmin, c.assessment.destroy);
  *       500:
  *         something when wrong.
  */
-router.get("/assessment-submission", c.assessmentSubmission.index);
+router.get(
+  "/assessment-submission",
+  m.requireAdminOrMentor,
+  c.assessmentSubmission.index
+);
 
 /**
  * @swagger
@@ -124,7 +132,7 @@ router.get("/assessment-submission", c.assessmentSubmission.index);
  */
 router.post(
   "/assessment-submission",
-  m.requireAdmin,
+  m.requireStudent,
   c.assessmentSubmission.create
 );
 
@@ -143,7 +151,7 @@ router.post(
  */
 router.get(
   "/assessment-submission/:id",
-  m.requireAdmin,
+  m.requireAdminOrMentorOrStudent,
   c.assessmentSubmission.show
 );
 
@@ -162,7 +170,7 @@ router.get(
  */
 router.post(
   "/assessment-submission/:id",
-  m.requireAdmin,
+  m.requireAdminOrStudent,
   c.assessmentSubmission.update
 );
 
@@ -199,7 +207,7 @@ router.delete(
  *       500:
  *         something when wrong.
  */
-router.get("/grade", c.grade.index);
+router.get("/grade", m.requireAdminOrMentor, c.grade.index);
 
 /**
  * @swagger
@@ -214,7 +222,7 @@ router.get("/grade", c.grade.index);
  *       500:
  *         something when wrong.
  */
-router.post("/grade", m.requireAdmin, c.grade.create);
+router.post("/grade", m.requireAdminOrMentor, c.grade.create);
 
 /**
  * @swagger
@@ -229,7 +237,7 @@ router.post("/grade", m.requireAdmin, c.grade.create);
  *       500:
  *         something when wrong.
  */
-router.get("/grade/:id", m.requireAdmin, c.grade.show);
+router.get("/grade/:id", m.requireAdminOrMentorOrStudent, c.grade.show);
 
 /**
  * @swagger
@@ -244,7 +252,7 @@ router.get("/grade/:id", m.requireAdmin, c.grade.show);
  *       500:
  *         something when wrong.
  */
-router.post("/grade/:id", m.requireAdmin, c.grade.update);
+router.post("/grade/:id", m.requireAdminOrMentor, c.grade.update);
 
 /**
  * @swagger

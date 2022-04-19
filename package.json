@@ -32,6 +32,8 @@
     "rand-token": "^1.0.1",
     "sequelize": "^6.3.4",
     "sqlite3": "^5.0.0",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.3.0",
     "swagger2-postman-generator": "^2.1.5",
     "tedious": "^11.0.5",
     "uuid": "^8.3.0"
