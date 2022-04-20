@@ -5,37 +5,18 @@ Simplified the setup of express node
 ### Installation
 
 1. git clone this repo
-2. npm i
+2. yarn
+3.
 
 ### Development
 
 1. Sequelize is setup following this tutorial https://dev.to/nedsoft/getting-started-with-sequelize-and-postgres-emp
 1. If sequelize is not installed, globally, can use `npx sequelize-cli <command>`
 
-### ENV RC CONFIG
-
-1. copy the `envrc.example` to `.envrc` ans write your appropriate settings
-2. Install [DIRENV](https://direnv.net/docs/installation.html)
-3. Run below to activate your env setting
-
-- zsh
-
-```zsh
-eval "$(direnv hook zsh)"
-direnv allow
-```
-
-- bash
-
-```bash
-eval "$(direnv hook bash)"
-direnv allow
-```
-
 ### Serve The App
 
-```zsh
-npx nodemon
+```
+yarn start
 ```
 
 ### Database sequlize thingy (SQL)

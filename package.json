@@ -67,19 +67,16 @@
     "test": "NODE_ENV=test nyc mocha --recursive --exit 'Test/**/*.test.js' && ./node_modules/.bin/eslint --fix --ignore-path .gitignore .",
     "start": "node app.js",
     "lint": "./node_modules/.bin/eslint --fix --ignore-path .gitignore .",
-    "erd": "sequelize-erd --source ./erd_generator.js --destination ./erd.svg",
+    "erd": "node erd_generator.js",
     "db:delete": "sequelize db:drop",
     "db:create": "sequelize db:create",
     "migrate": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
-  "repository": "git+ssh://git@gitlab.com:neonexxa/quicknode.git",
+  "repository": "https://github.com/Sajid576/project-assessment",
   "keywords": [
     "quicknode"
   ],
   "author": "Sajid Ahmed",
   "license": "MIT",
-  "bugs": {
-    "url": "https://gitlab.com/neonexxa/quicknode/issues"
-  },
-  "homepage": "https://gitlab.com/neonexxa/quicknode#readme"
+  "homepage": ""
 }

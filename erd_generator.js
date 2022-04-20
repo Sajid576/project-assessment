@@ -1,7 +1,14 @@
-const { sequelize } = require('./models/index');
-// Require our models. Running each module registers the model into sequelize
-// so any other part of the application can simply call sequelize.model('User')
-// to get access to the User model.
-// require('./models');
+const { sequelize } = require("./models");
 
-module.exports = sequelize;
+const { writeFileSync } = require("fs");
+const sequelizeErd = require("sequelize-erd");
+
+(async function () {
+  // const db = new Sequelize(/* Your Sequelize config object */);
+  // Import DB models here
+
+  const svg = await sequelizeErd({ source: sequelize }); // sequelizeErd() returns a Promise
+  writeFileSync("./erd.svg", svg);
+
+  // Writes erd.svg to local path with SVG file from your Sequelize models
+})();
