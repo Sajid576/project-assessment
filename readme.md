@@ -4,19 +4,34 @@ Simplified the setup of express node
 
 ### Installation
 
-1. git clone this repo
-2. yarn
-3.
-
-### Development
-
-1. Sequelize is setup following this tutorial https://dev.to/nedsoft/getting-started-with-sequelize-and-postgres-emp
-1. If sequelize is not installed, globally, can use `npx sequelize-cli <command>`
-
-### Serve The App
+- Clone this repo using
 
 ```
-yarn start
+$ git clone
+```
+
+- Install `node modules` using
+
+```
+$ yarn
+```
+
+- Create database using
+
+```
+$ yarn db:create
+```
+
+- Perform database migrations and seeds using
+
+```
+$ yarn migrate
+```
+
+- Serve The App using
+
+```
+$ yarn start
 ```
 
 ### Database sequlize thingy (SQL)
@@ -37,5 +52,5 @@ npx sequelize-cli seed:generate --name role
 ### Visualize ERD
 
 ```zsh
-npm run erd
+yarn erd
 ```
