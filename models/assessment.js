@@ -7,9 +7,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    // static associate(models) {
-    //   // define association here
-    // }
+    static associate(models) {
+      // define association here
+      this.belongsTo(models.User);
+    }
   }
   Assessment.init(
     {
@@ -22,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         default: '',
       },
-      mentor: {
-        type: DataTypes.STRING,
+      UserId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       deadline: {

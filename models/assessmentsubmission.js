@@ -9,11 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.belongsTo(models.Assessment);
+      this.belongsTo(models.User);
     }
   }
   AssessmentSubmission.init(
     {
-      file: {
+      files: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -26,6 +27,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       AssessmentId: {
+        type: DataTypes.INTEGER,
+      },
+      UserId: {
         type: DataTypes.INTEGER,
       },
     },

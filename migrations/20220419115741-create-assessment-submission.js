@@ -7,7 +7,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      file: {
+      files: {
         type: Sequelize.STRING,
       },
       submissionDate: {
@@ -17,6 +17,9 @@ module.exports = {
         type: Sequelize.STRING,
       },
       AssessmentId: {
+        type: Sequelize.INTEGER,
+      },
+      UserId: {
         type: Sequelize.INTEGER,
       },
       createdAt: {

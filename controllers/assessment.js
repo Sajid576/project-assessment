@@ -1,4 +1,5 @@
 const m = require('../models');
+const { formatDate } = require('../helper/datetime');
 
 function index(req, res) {
   const where = {};
@@ -14,6 +15,8 @@ function show(req, res) {
 }
 
 function create(req, res) {
+  console.log(req.body);
+  req.body = { ...req.body, deadline: formatDate(req.body.deadline) };
   m.Assessment.create(req.body)
     .then((data) => res.json({ data }))
     .catch((error) => res.status(500).json({ error }));

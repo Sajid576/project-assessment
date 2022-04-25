@@ -3,8 +3,6 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const randtoken = require('rand-token');
 
-const refreshTokens = {};
-
 function login(req, res, next) {
   passport.authenticate('login', async (err, user, info) => {
     try {
@@ -20,7 +18,6 @@ function login(req, res, next) {
         // Send back the token to the user
         const token = jwt.sign(jwt_content, process.env.PROJECT_JWT_SECRET, { expiresIn: 86400 });
         const refreshToken = randtoken.uid(256);
-        refreshTokens[refreshToken] = user.email;
         res.json({ token, refreshToken });
       });
     } catch (error) {

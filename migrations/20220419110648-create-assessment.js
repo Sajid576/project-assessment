@@ -16,8 +16,8 @@ module.exports = {
         allowNull: false,
         default: '',
       },
-      mentor: {
-        type: Sequelize.STRING,
+      UserId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       deadline: {
