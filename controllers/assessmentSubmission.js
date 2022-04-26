@@ -70,7 +70,7 @@ async function update(req, res) {
       where: { id: req.params.id },
     });
     console.log('update', data);
-    res.json({ message:"Submission successfully updated" });
+    res.json({ message: 'Submission successfully updated' });
   } catch (error) {
     res.status(500).json({ error });
   }
@@ -78,7 +78,7 @@ async function update(req, res) {
 
 function destroy(req, res) {
   m.AssessmentSubmission.destroy({ where: { id: req.params.id } })
-    .then((data) => res.json({ message:"Submission successfully deleted" }) )
+    .then((data) => res.json({ message: 'Submission successfully deleted' }))
     .catch((error) => res.status(500).json({ error }));
 }
 
