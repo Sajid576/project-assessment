@@ -38,6 +38,11 @@ $ yarn migrate
 ```
 $ yarn dev
 ```
+- Test the app using
+```
+$ yarn test
+```
+
 
 ### Database sequlize thingy (SQL)
 

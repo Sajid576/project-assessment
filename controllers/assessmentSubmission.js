@@ -1,7 +1,7 @@
 const paths = require('path');
 const m = require('../models');
 const storageLib = require('../driver/storage');
-const { formatDate, getCurrentDatetime } = require('../helper/datetime');
+const { getCurrentDatetime } = require('../helper/datetime');
 
 function index(req, res) {
   const where = {};
@@ -14,6 +14,7 @@ async function show(req, res) {
   try {
     const data = await m.AssessmentSubmission.findOne({ where: { id: req.params.id } });
     if (req.user.RoleId === 3) {
+      // eslint-disable-next-line max-depth
       if (req.user.id !== data.UserId) {
         res.status(401).json({ error: 'You are only allowed to see your own submissions' });
       } else {
@@ -78,7 +79,7 @@ async function update(req, res) {
 
 function destroy(req, res) {
   m.AssessmentSubmission.destroy({ where: { id: req.params.id } })
-    .then((data) => res.json({ message: 'Submission successfully deleted' }))
+    .then(() => res.json({ message: 'Submission successfully deleted' }))
     .catch((error) => res.status(500).json({ error }));
 }
 

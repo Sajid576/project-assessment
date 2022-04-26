@@ -5,7 +5,7 @@ const formats = {
   DAY_MONTH_YEAR: 'DD-MM-YYYY',
 };
 module.exports = {
-  getCurrentDatetime: () => moment().tz('Asia/Dhaka').format(formats.YEAR_MONTH_DAY),
+  getCurrentDatetime: () => moment().tz('Asia/Dhaka').format(),
   getFormattedDateTime: (serverDatetime) => moment
     .tz(serverDatetime, 'Asia/Dhaka')
     .format(formats.YEAR_MONTH_DAY),

@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const faker = require('faker');
+const datetime = require('./datetime');
 
 const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config')[env];
@@ -84,4 +85,5 @@ module.exports = {
   queryParameters,
   getRandomImage,
   bulk_upsert,
+  datetime,
 };

@@ -16,9 +16,9 @@ describe('Get Users as Admin', () => {
     res.body.should.have.property('total');
   });
 });
-describe('Get Users as Normal user', () => {
+describe('Get Users as Mentor user', () => {
   it('gets denied', async () => {
-    const res = await authenticated_get('/api/users', 'normal');
+    const res = await authenticated_get('/api/users', 'mentor');
     res.should.have.status(403);
   });
 });

@@ -1,10 +1,18 @@
 const chai = require('chai');
 const db = require('../../models');
 const server = require('../../app');
-const { admin_user, normal_user } = require('./SampleData');
+const { admin_user, mentor_user, student_user } = require('./SampleData');
 
 async function getNewToken(role = 'admin') {
-  const user = role === 'admin' ? admin_user : normal_user;
+  let user;
+  if (role === 'admin') {
+    user = admin_user;
+  } else if (role === 'mentor') {
+    user = mentor_user;
+  } else {
+    user = student_user;
+  }
+
   try {
     await db.User.create(user);
   } catch {
