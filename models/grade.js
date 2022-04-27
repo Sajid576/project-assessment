@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       AssessmentId: {
         type: DataTypes.INTEGER,
       },
-      AssessmentSubmitId: {
+      AssessmentSubmissionId: {
         type: DataTypes.INTEGER,
       },
     },

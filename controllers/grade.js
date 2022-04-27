@@ -4,7 +4,9 @@ function index(req, res) {
   const where = {};
   m.Grade.findAll({ where })
     .then((data) => res.json({ data }))
-    .catch((error) => res.status(500).json({ error }));
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
 }
 
 function show(req, res) {

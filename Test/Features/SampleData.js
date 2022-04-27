@@ -48,7 +48,7 @@ const grade = {
   marks: 70,
   remarks: 50,
   AssessmentId: 2,
-  AssessmentSubmitId: 2,
+  AssessmentSubmissionId: 2,
 };
 
 module.exports = {

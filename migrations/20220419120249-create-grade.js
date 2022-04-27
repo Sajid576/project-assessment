@@ -16,7 +16,7 @@ module.exports = {
       AssessmentId: {
         type: Sequelize.INTEGER,
       },
-      AssessmentSubmitId: {
+      AssessmentSubmissionId: {
         type: Sequelize.INTEGER,
       },
       createdAt: {
