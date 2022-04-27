@@ -38,9 +38,8 @@ const assessment = {
   UserId: 112,
 };
 const assessmentSubmit = {
-  file: faker.name.findName(),
+  files: faker.name.findName(),
   submissionDate: faker.date.between('01-01-2022', '01-05-2022'),
-  grades: 'A+',
   AssessmentId: 1,
   UserId: 2,
 };

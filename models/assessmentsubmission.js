@@ -22,10 +22,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         allowNull: false,
       },
-      grades: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
       AssessmentId: {
         type: DataTypes.INTEGER,
       },

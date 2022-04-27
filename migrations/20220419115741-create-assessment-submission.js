@@ -13,9 +13,6 @@ module.exports = {
       submissionDate: {
         type: Sequelize.DATE,
       },
-      grades: {
-        type: Sequelize.STRING,
-      },
       AssessmentId: {
         type: Sequelize.INTEGER,
       },

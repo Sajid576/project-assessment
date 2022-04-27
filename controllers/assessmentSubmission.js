@@ -22,6 +22,7 @@ async function show(req, res) {
       }
     }
   } catch (error) {
+    console.log('error-show', error);
     res.status(500).json({ error });
   }
 }
@@ -73,6 +74,7 @@ async function update(req, res) {
     console.log('update', data);
     res.json({ message: 'Submission successfully updated' });
   } catch (error) {
+    console.log('error', error);
     res.status(500).json({ error });
   }
 }
