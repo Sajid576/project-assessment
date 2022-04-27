@@ -2,12 +2,17 @@
 
 Simplified the setup of express node
 
+### Prerequisites
+- Docker
+- Node
+- yarn/npm
+- Dbeaver(optional)
 ### Installation
 - Setup `mysql` docker container using:
 ```
 $ sudo docker run -p 3306:3306 --name algorizin -e MYSQL_ROOT_PASSWORD=Password -d mysql:latest
 ```
-- Install SQL DB client E.g- `DBeaver` and connect to installed docker container. 
+
 
 - Clone this repo using
 
