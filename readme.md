@@ -48,6 +48,8 @@ $ yarn dev
 $ yarn test
 ```
 
+- Give absolute path to the `STORAGE_ABSOLUTE_PATH` variable in env file.
+
 
 ### Database sequlize thingy (SQL)
 
